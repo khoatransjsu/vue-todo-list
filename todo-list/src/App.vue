@@ -1,23 +1,39 @@
 <template>
     <div class="container">
       <Header title = "Todo List"/>
-      <Tasks :tasks="tasks"/>
+      <AddTask @add-task="addTask"/>
+      <Tasks @delete-task="deleteTask"
+             @toggle-reminder="toggleReminder"
+            :tasks="tasks"/>
     </div>
 </template>
 
 <script>
   import Header from './components/Header'
   import Tasks from './components/Tasks'
+   import AddTask from './components/AddTask'
 
   export default {
     name: 'App',
     components: {
       Header,
-      Tasks
+      Tasks,
+      AddTask
     },
     data(){
       return{
         tasks:[]
+      }
+    },
+    methods:{
+      deleteTask(id){
+        this.tasks = this.tasks.filter((task)=> task.id !== id)
+      },
+      toggleReminder(id){
+        this.tasks = this.tasks.map(task => task.id === id ? { ...task, reminder: !task.reminder} : task)
+      },
+      addTask(task){
+        this.tasks=[...this.tasks, task]
       }
     },
     created(){
@@ -31,8 +47,8 @@
         {
           id:2,
           text: 'Online Assessemnt',
-          day: 'Sep 14st at 9:00 AM',
-          reminder: True,
+          day: 'Sep 14th at 9:00 AM',
+          reminder: true,
         }
       ]
     }

@@ -42,22 +42,14 @@
       toggleAddTask(){
         this.showAddTask = !this.showAddTask
       },
+      async fetchData(){
+        const res = await fetch('http://localhost:5000/tasks')
+        const data = await res.json();
+        return data;
+      }
     },
-    created(){
-      this.tasks = [
-        {
-          id:1,
-          text: 'CS Classes',
-          day: 'Sep 1st at 9:00 AM',
-          reminder: false,
-        },
-        {
-          id:2,
-          text: 'Online Assessemnt',
-          day: 'Sep 14th at 9:00 AM',
-          reminder: true,
-        }
-      ]
+    async created(){
+      this.tasks= await this.fetchData();
     }
   }
 </script>

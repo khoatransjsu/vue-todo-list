@@ -6,7 +6,7 @@
 </template>
 
 <style scoped>
-a {
+a{
   color: #333;
 }
 footer {

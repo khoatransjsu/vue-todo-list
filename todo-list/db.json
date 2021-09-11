@@ -1,16 +1,16 @@
 {
-    "tasks": [
-        {     
-            "id":"1",
-            "text": "CS Classes",
-            "day": "Sep 1st at 9:00 AM",
-            "reminder": false
-        },
-        {
-            "id":2,
-            "text": "Online Assessemnt",
-            "day": "Sep 14th at 9:00 AM",
-            "reminder": true
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "text": "CS Classes",
+      "day": "Sep 1st at 9:00 AM",
+      "reminder": false
+    },
+    {
+      "id": 2,
+      "text": "Online Assessemnt",
+      "day": "Sep 14th at 9:00 AM",
+      "reminder": true
+    }
+  ]
 }
